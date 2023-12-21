@@ -4,31 +4,21 @@ import "../App.css";
 
 function Form({
   onClickProp,
-  bookDataProp,
   selectedCoverTypeProp,
   selectedCategoryProp,
-  handleCategoryChangeProp,
-  handleCoverTypeChangeProp,
-  errorMessageProp,
+  handleChangeProp,
 }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    onClickProp(selectedCoverTypeProp, selectedCategoryProp);
-  };
-
-  console.log(errorMessageProp, "error");
-  console.log(bookDataProp, "bookDataProp,");
   return (
     <>
       <div className="form-container">
         <h1>Check out the New York Times Best Sellers Lists for Books!</h1>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <select
+          name="coverType"
           value={selectedCoverTypeProp}
-          onChange={handleCoverTypeChangeProp}
+          onChange={handleChangeProp}
         >
           <option value="select">Select A Cover Type</option>
           <option value="paperback">Paperback</option>
@@ -37,8 +27,9 @@ function Form({
 
         <label>Fiction or NonFiction?</label>
         <select
+          name="category"
           value={selectedCategoryProp}
-          onChange={handleCategoryChangeProp}
+          onChange={handleChangeProp}
         >
           <option value="select">Select A Category</option>
           <option value="fiction">Fiction</option>
@@ -46,7 +37,9 @@ function Form({
         </select>
 
         <div>
-          <button type="submit">Click</button>
+          <button type="submit" onClick={onClickProp}>
+            Click
+          </button>
         </div>
       </form>
     </>
