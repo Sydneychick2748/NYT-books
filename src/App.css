@@ -39,4 +39,31 @@ button {
 button:hover {
   background-color: #36234f; 
 }
+/* Add these styles to your CSS file */
+
+.mapbook-parent-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.books-container {
+  box-sizing: border-box;
+  width: 20%; 
+  margin: 35px;
+  padding: 20px;
+  border: 2px solid rgb(12, 11, 11); 
+  text-align: center;
+}
+
+.books-container img {
+  width: 100%; 
+  height: auto; 
+  border: 2px solid rgb(243, 237, 237); 
+  margin-bottom: 8px; 
+}
+
+.books-container p {
+  margin: 3px;
+}
 
