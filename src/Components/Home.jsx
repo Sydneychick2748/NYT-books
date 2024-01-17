@@ -10,17 +10,25 @@ function Home() {
 
   const fetchData = async (coverType, category) => {
     const apiUrl = `https://api.nytimes.com/svc/books/v3/lists/current/${coverType}-${category}.json?api-key=uKtQimMDWaJKpvlcydyoRgLnrgAZju5k`;
-
+  
     try {
       const response = await fetch(apiUrl);
+  
+      if (!response.ok) {
+        // Handle non-successful response (status other than 200)
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+  
       const data = await response.json();
       console.log(data, "data");
       setBookData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
-      //   setErrorMessage(true);
+      // Handle the error or set an error message
+      // setErrorMessage(true);
     }
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
