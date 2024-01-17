@@ -27,18 +27,6 @@ function Home() {
     }
   };
   
-  return (
-    <ErrorBoundary>
-      <div>
-        {/* Display your fetched data or other UI elements */}
-        {bookData ? (
-          <p>Data loaded successfully: {JSON.stringify(bookData)}</p>
-        ) : (
-          <button onClick={() => fetchData('hardcover', 'fiction')}>Fetch Data</button>
-        )}
-      </div>
-    </ErrorBoundary>
-  );
   
 
   const handleSubmit = (e) => {
