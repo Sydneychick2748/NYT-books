@@ -11,20 +11,21 @@ function Home() {
 
   const fetchData = async (coverType, category) => {
     const apiUrl = `https://api.nytimes.com/svc/books/v3/lists/current/${coverType}-${category}.json?api-key=uKtQimMDWaJKpvlcydyoRgLnrgAZju5k`;
-
+  
     try {
       const response = await fetch(apiUrl);
-
+  
       if (!response.ok) {
-        throw new Error(` HTTP Error: ${response.status}`);
+        throw new Error(`HTTP Error: ${response.status}`);
       }
-
+  
       const data = await response.json();
       console.log(data, "data");
       setBookData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
   
   return (
     <ErrorBoundary>
@@ -38,7 +39,7 @@ function Home() {
       </div>
     </ErrorBoundary>
   );
-};
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
